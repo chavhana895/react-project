@@ -3,11 +3,13 @@ import React, { Component } from 'react'
 import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-import { Typography } from '@mui/material';
+import { AppBar, Grid, Typography } from '@mui/material';
 import ComputerIcon from '@mui/icons-material/Computer';
 import DevicesIcon from '@mui/icons-material/Devices';
 import PhoneAndroidIcon from '@mui/icons-material/PhoneAndroid';
 import SignalWifi1BarLockIcon from '@mui/icons-material/SignalWifi1BarLock';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -20,8 +22,21 @@ const Item = styled(Paper)(({ theme }) => ({
 export default class Settings extends Component {
     render() {
         return (
+            <>
+             <AppBar>
+                <Navbar/>
+             </AppBar>
+
+             <Sidebar/>
+            <Grid
+                container
+                direction="row"
+                justifyContent="center"
+                alignItems="flex-start"
+
+                >
             <div>
-      <Stack direction="row" spacing={2} justifyContent="space-between" paddingTop={10} paddingRight={10}>
+      <Stack direction="row" spacing={2} justifyContent="space-between" paddingTop={10}  paddingLeft={20}>
         <Item>  <h3>
             <ComputerIcon fontSize='small'/>
            System</h3>
@@ -43,7 +58,7 @@ export default class Settings extends Component {
         </Item>
       </Stack>
 
-      <Stack direction="row" spacing={2} justifyContent="space-between" paddingTop={10} paddingRight={10}>
+      <Stack direction="row" spacing={2} justifyContent="space-between" paddingTop={10} paddingLeft={20}>
         <Item>  <h3>
             <ComputerIcon fontSize='small'/>
            System</h3>
@@ -66,6 +81,8 @@ export default class Settings extends Component {
       </Stack>
       
     </div>
+    </Grid>
+    </>
         )
     }
 }

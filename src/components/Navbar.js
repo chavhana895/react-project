@@ -1,8 +1,8 @@
 import { Mail, Notifications, Pets} from "@mui/icons-material";
-import {AppBar,Avatar,Badge,Box,Button,InputBase,Menu,MenuItem,styled,Toolbar,Typography} from "@mui/material";
+import {AppBar,Avatar,Badge,Box,Button,InputBase,ListItemText,Menu,MenuItem,styled,Toolbar,Typography} from "@mui/material";
 import React, { useState } from "react";
 import MapsHomeWorkIcon from '@mui/icons-material/MapsHomeWork';
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 // import { useHistory } from "react-router-dom";
 // import { Link} from "react-router-dom";
 
@@ -44,6 +44,7 @@ function Navbar(){
   const navigate = useNavigate();
 
   return (
+    <>
     <AppBar position="sticky">
       <StyledToolbar>
         <Typography  variant="h6" sx={{ display: { xs: "none", sm: "block" } }}>
@@ -53,6 +54,9 @@ function Navbar(){
         <Search>
           <InputBase placeholder="search..." />
         </Search>
+        <Typography>
+         <ListItemText onClick = {()=>navigate("/products")}> Products </ListItemText>
+        </Typography>
         <Icons>
           <Badge badgeContent={4} color="error">
             <Mail />
@@ -97,8 +101,13 @@ function Navbar(){
         <MenuItem>
         <Button onClick = {()=>navigate("/logout")}> Logout </Button>
         </MenuItem>
+        <MenuItem>
+        <Button onClick = {()=>navigate("/")}> Homepage </Button>
+        </MenuItem>
       </Menu>
     </AppBar>
+    <Outlet/>
+    </>
   );
 };
   

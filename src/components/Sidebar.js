@@ -15,8 +15,7 @@ import {
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
-  Button
+  ListItemText
 } from "@mui/material";
 import React from "react";
 import { useNavigate } from "react-router-dom";
@@ -27,8 +26,8 @@ const Sidebar = ({mode,setMode}) => {
   const navigate = useNavigate();
 
   return (
-    <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }}>
-      <Box position="fixed">
+    <Box flex={1} p={2} sx={{ display: { xs: "none", sm: "block" } }} paddingTop={8}>
+      <Box position="fixed"> 
         <List>
           <ListItem disablePadding>
             <ListItemButton >
@@ -51,7 +50,7 @@ const Sidebar = ({mode,setMode}) => {
               <ListItemIcon>
                 <Group />
               </ListItemIcon>
-              <ListItemText onClick = {()=>navigate("/group")}> Groups </ListItemText>
+              <ListItemText onClick = {()=>navigate("/album")}> Album </ListItemText>
             </ListItemButton>
           </ListItem>
           <ListItem disablePadding>

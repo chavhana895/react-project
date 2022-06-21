@@ -1,17 +1,3 @@
-// import React, { Component } from 'react'
-import './View.css'
-
-// export default class Profile extends Component {
-//     render() {
-//         return (
-//             <div className='comp'>
-//                 <h2> This is profile page</h2>
-//             </div>
-//         )
-//     }
-// }
-
-
 import * as React from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
@@ -26,6 +12,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { AppBar } from '@mui/material';
+import Navbar from '../components/Navbar';
+import Sidebar from '../components/Sidebar';
+import { useNavigate } from 'react-router-dom';
 
 
 const theme = createTheme();
@@ -40,9 +30,24 @@ export default function SignUp() {
     });
   };
 
+  let Navigate = useNavigate();
+
   return (
-      <div className='prof'>
-          {/* <h4>First Need to log-in Or Sign-up</h4> */}
+    <>
+  
+          <AppBar>
+             <Navbar/>
+          </AppBar>
+             <Sidebar/> 
+          <Grid
+            container
+            direction="column"
+            justifyContent="space-between"
+            alignItems="center"
+          >
+  
+
+          <h4>To Access Profile Page First Need to log-in Or Sign-up</h4>
     <ThemeProvider theme={theme} text-align="center">
       <Container component="main" maxWidth="xs">
         <CssBaseline />
@@ -121,7 +126,7 @@ export default function SignUp() {
             </Button>
             <Grid container justifyContent="flex-end">
               <Grid item>
-                <Link href="#" variant="body2">
+                <Link variant="body2"  onClick={()=> Navigate('/logout')}>
                   Already have an account? Sign in
                 </Link>
               </Grid>
@@ -131,6 +136,8 @@ export default function SignUp() {
         {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </ThemeProvider>
-    </div>
+    
+</Grid>
+</>
   );
 }

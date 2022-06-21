@@ -1,9 +1,11 @@
-import React from 'react'
+import { useState, useEffect } from "react";
+import nestApp from "../nestedRoute/nestApp";
 
-export default function MyAccount() {
+function MyAccount() {
+
   return (
-    <div className='comp'>
-    <p2>This is my account page</p2>
-    </div>
-  )
+    <nestApp/>
+  );
 }
+
+export default MyAccount;

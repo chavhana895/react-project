@@ -4,7 +4,7 @@ import {useNavigate} from 'react-router-dom'
 
 
 const Post = () => {
-  const navigate = useNavigate();
+const navigate = useNavigate();
 
 
   return (
@@ -21,7 +21,7 @@ const Post = () => {
           </IconButton>
         }
         title="Ainash Chavhan"
-        subheader="May 20, 2022"
+        subheader="May 28, 2022"
       />
       <CardMedia
         component="img"
